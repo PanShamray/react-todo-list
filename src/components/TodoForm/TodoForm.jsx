@@ -3,13 +3,13 @@ import './style.scss';
 // * React
 import React, {useState} from 'react';
 
-function TodoForm() {
+function TodoForm({addTodo}) {
     const [inputValue, setInputValue] = useState("");
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!inputValue.trim()) return;
-        console.log(inputValue);
+        addTodo(inputValue);
         setInputValue('');
     };
 

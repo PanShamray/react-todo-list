@@ -1,13 +1,24 @@
+
 import "./style.scss";
 
 // * React
 import React from "react";
 
-function TodoList() {
+// * Components
+import TodoItem from "../TodoItem";
+
+function TodoList({todos, toggleTodo, removeTodo}) {
   return (
-    <h1>
-      <code>LIST</code>
-    </h1>
+    <ul>
+      {todos.map((todo) => (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo}
+          removeTodo={removeTodo}
+        />
+      ))}
+    </ul>
   );
 }
 
